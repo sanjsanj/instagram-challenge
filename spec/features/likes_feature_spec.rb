@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Likes' do
+feature 'Likes', js:true do
 
   before do
     sign_up_and_sign_in

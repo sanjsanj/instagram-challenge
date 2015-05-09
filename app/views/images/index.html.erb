@@ -4,13 +4,9 @@
   <% @images.each do |image| %>
     <h2>
       <%= link_to image.description, image_path(image) %>
-      <%= pluralize image.likes.count, 'like' %>
 
-      <% if current_user.already_liked?(image) %>
-        Liked
-      <% else %>
-        <%= link_to "Like", image_likes_path(image), remote: true, method: :post %>
-      <% end %>
+        <%= link_to "Like", image_likes_path(image), class: 'likes-link' method: :post %>
+        <span class="likes_count"> <%= image.likes.count %> </span> <%= 'like'.pluralize(image.likes.count) %>
 
       <%= link_to "Comment", new_image_comment_path(image) %>
       <%= link_to "Edit", edit_image_path(image) %>
